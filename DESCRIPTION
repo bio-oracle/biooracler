@@ -1,0 +1,17 @@
+Package: biooracler
+Title: Import environmental ocean data from Bio-Oracle via ERDDAP
+Version: 0.0.0.9000
+Authors@R: c(
+      person("Salvador", "Fernandez", email = "salvador.fernandez@vliz.be", role = c("aut", "cre")),
+      person("Vinicius", "Salazar", role = c("ctb")))
+Description: Environmental ocean data modeled both for the present and for future climate change 
+             scenarios offered by the Bio-Oracle dataset <https://bio-oracle.org/> via ERDDAP server. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    rerddap
