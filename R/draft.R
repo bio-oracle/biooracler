@@ -1,25 +1,29 @@
-library("rerddap")
-
-
-# Test variables
-url = "https://erddap-test.emodnet.eu/erddap/"
-datasetid = "biooracle_dmo_ds"
-time = c('2001-01-01T00:00:00Z', '2010-01-01T00:00:00Z')
-latitude = c(10, 20)
-longitude = c(120, 130)
-variables = c("o2_mean")
-constraints = list(time, latitude, longitude)
-names(constraints) = c("time", "latitude", "longitude")
-
-out = info(datasetid, url)
-res = griddap(out,
-              time=time,
-              latitude=latitude,
-              longitude=longitude,
-              fields=variables
-              )
-
-# Actual code
+#' Downloads a griddap dataset from an ERDDAP server
+#'
+#' @param erddap_server
+#' @param dataset
+#' @param variables
+#' @param constraints
+#' @param response
+#' @param directory
+#' @param verbose
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+#' # Test variables
+#' url = "https://erddap-test.emodnet.eu/erddap/"
+#' datasetid = "biooracle_dmo_ds"
+#' time = c('2001-01-01T00:00:00Z', '2010-01-01T00:00:00Z')
+#' latitude = c(10, 20)
+#' longitude = c(120, 130)
+#' variables = c("o2_mean")
+#' constraints = list(time, latitude, longitude)
+#' names(constraints) = c("time", "latitude", "longitude")
+#' # Test call
+#' download_griddap_dataset(url, datasetid, variables, constraints)
 download_griddap_dataset = function(erddap_server,
                                     dataset,
                                     variables,
@@ -34,7 +38,7 @@ download_griddap_dataset = function(erddap_server,
   }
   # Args to be passed to griddap call later on
   docallargs = list()
-  out = info(datasetid=dataset, url=erddap_server)
+  out = rerddap::info(datasetid=dataset, url=erddap_server)
   docallargs[["x"]] = out
 
   printer(sprintf("Selected dataset %s.", dataset))
@@ -59,10 +63,8 @@ download_griddap_dataset = function(erddap_server,
   if (length(valid_variables) > 0) {docallargs[["fields"]] = valid_variables}
   printer(sprintf("Selected %s variables: %s", length(valid_variables), toString(valid_variables)))
 
-  res = do.call(griddap, docallargs)
+  res = do.call(rerddap::griddap, docallargs)
   print(docallargs)
   return(res)
 }
 
-# Test call
-download_griddap_dataset(url, datasetid, variables, constraints)
