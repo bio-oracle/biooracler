@@ -22,10 +22,11 @@ test_that("download dataset works", {
     expect_s3_class(test$data, "data.frame")
 
     # Test download to custom dir
-    temp_file <- paste0(tempfile(), ".nc")
-    test_dir <- download_griddap_dataset(directory = temp_file, url, datasetid, variables, constraints)
+    temp_dir <- normalizePath(tempdir())
+    test_dir <- download_griddap_dataset(directory = temp_dir, url, datasetid, variables, constraints)
 
-    expect_equal(test_dir$summary$filename, temp_file)
+    out_dir <- normalizePath(dirname(test_dir$summary$filename))
+    expect_equal(out_dir, temp_dir)
   }
 
 })
