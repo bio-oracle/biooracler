@@ -1,6 +1,6 @@
 #' Downloads a griddap dataset from an ERDDAP server
 #'
-#' @param erddap_server
+#' @param url
 #' @param dataset
 #' @param variables
 #' @param constraints
@@ -28,7 +28,7 @@
 download_dataset = function(dataset,
                                     variables,
                                     constraints,
-                                    erddap_server="https://erddap-test.emodnet.eu/erddap/",
+                                    url="https://erddap-test.emodnet.eu/erddap/",
                                     fmt="nc",
                                     directory=FALSE,
                                     verbose=TRUE,
@@ -41,7 +41,7 @@ download_dataset = function(dataset,
   # Args to be passed to griddap call later on
   docallargs = list()
   docallargs[["fmt"]] = fmt
-  out = rerddap::info(datasetid=dataset, url=erddap_server)
+  out = rerddap::info(datasetid=dataset, url=url)
   docallargs[["x"]] = out
 
   printer(sprintf("Selected dataset %s.", dataset))
@@ -86,8 +86,8 @@ download_dataset = function(dataset,
 }
 
 
-list_layers = function(erddap_server = "https://erddap-test.emodnet.eu/erddap/", filter_biooracle=TRUE) {
-  response = rerddap::ed_datasets("griddap", url=erddap_server)
+list_layers = function(url = "https://erddap-test.emodnet.eu/erddap/", filter_biooracle=TRUE) {
+  response = rerddap::ed_datasets("griddap", url=url)
   if (isTRUE(filter_biooracle)) {
     response = response %>% filter(grepl("biooracle",Dataset.ID))
   }
