@@ -4,7 +4,7 @@
 #' @param dataset
 #' @param variables
 #' @param constraints
-#' @param response
+#' @param fmt
 #' @param directory
 #' @param verbose
 #'
@@ -21,14 +21,15 @@
 #' longitude = c(120, 130)
 #' variables = c("o2_mean")
 #' constraints = list(time, latitude, longitude)
+#' fmt = "nc"
 #' names(constraints) = c("time", "latitude", "longitude")
 #' # Test call
-#' download_griddap_dataset(url, datasetid, variables, constraints)
+#' download_griddap_dataset(datasetid, variables, constraints)
 download_griddap_dataset = function(dataset,
                                     variables,
                                     constraints,
                                     erddap_server="https://erddap-test.emodnet.eu/erddap/",
-                                    response="nc",
+                                    fmt="nc",
                                     directory=FALSE,
                                     verbose=TRUE,
                                     debug=FALSE
@@ -39,6 +40,7 @@ download_griddap_dataset = function(dataset,
   }
   # Args to be passed to griddap call later on
   docallargs = list()
+  docallargs[["fmt"]] = fmt
   out = rerddap::info(datasetid=dataset, url=erddap_server)
   docallargs[["x"]] = out
 
