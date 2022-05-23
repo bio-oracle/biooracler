@@ -24,10 +24,10 @@
 #' names(constraints) = c("time", "latitude", "longitude")
 #' # Test call
 #' download_griddap_dataset(url, datasetid, variables, constraints)
-download_griddap_dataset = function(erddap_server,
-                                    dataset,
+download_griddap_dataset = function(dataset,
                                     variables,
                                     constraints,
+                                    erddap_server="https://erddap-test.emodnet.eu/erddap/",
                                     response="nc",
                                     directory=FALSE,
                                     verbose=TRUE,
@@ -83,3 +83,11 @@ download_griddap_dataset = function(erddap_server,
   return(res)
 }
 
+
+list_layers = function(erddap_server = "https://erddap-test.emodnet.eu/erddap/", filter_biooracle=TRUE) {
+  response = rerddap::ed_datasets("griddap", url=erddap_server)
+  if (isTRUE(filter_biooracle)) {
+    response = response %>% filter(grepl("biooracle",Dataset.ID))
+  }
+  return(response)
+}
