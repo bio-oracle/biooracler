@@ -1,10 +1,10 @@
 #' Downloads a griddap dataset from an ERDDAP server
 #'
-#' @param erddap_server
+#' @param url
 #' @param dataset
 #' @param variables
 #' @param constraints
-#' @param response
+#' @param fmt
 #' @param directory
 #' @param verbose
 #'
@@ -21,15 +21,16 @@
 #' longitude = c(120, 130)
 #' variables = c("o2_mean")
 #' constraints = list(time, latitude, longitude)
+#' fmt = "nc"
 #' names(constraints) = c("time", "latitude", "longitude")
 #' # Test call
-#' download_griddap_dataset(url, datasetid, variables, constraints)
-download_griddap_dataset = function(erddap_server,
-                                    dataset,
+#' download_dataset(datasetid, variables, constraints)
+download_dataset = function(dataset,
                                     variables,
                                     constraints,
-                                    response="nc",
-                                    directory="./",
+                                    url="https://erddap-test.emodnet.eu/erddap/",
+                                    fmt="nc",
+                                    directory=FALSE,
                                     verbose=TRUE,
                                     debug=FALSE
 ) {
@@ -39,7 +40,8 @@ download_griddap_dataset = function(erddap_server,
   }
   # Args to be passed to griddap call later on
   docallargs = list()
-  out = rerddap::info(datasetid=dataset, url=erddap_server)
+  docallargs[["fmt"]] = fmt
+  out = rerddap::info(datasetid=dataset, url=url)
   docallargs[["x"]] = out
 
   printer(sprintf("Selected dataset %s.", dataset))
@@ -65,9 +67,12 @@ download_griddap_dataset = function(erddap_server,
   printer(sprintf("Selected %s variables: %s", length(valid_variables), toString(valid_variables)))
 
   # Set directory for storing data
-  cache_dir <- hoardr::hoard()
-  cache_dir$cache_path_set(full_path=directory)
-  docallargs[["store"]] = rerddap::disk(cache_dir$cache_path_get())
+
+  if (!isFALSE(directory)) {
+    cache_dir <- hoardr::hoard()
+    cache_dir$cache_path_set(full_path=directory)
+    docallargs[["store"]] = rerddap::disk(cache_dir$cache_path_get())
+  }
 
   # Debug flag to check args if needed
   if (debug) {
@@ -80,3 +85,11 @@ download_griddap_dataset = function(erddap_server,
   return(res)
 }
 
+
+list_layers = function(url = "https://erddap-test.emodnet.eu/erddap/", filter_biooracle=TRUE) {
+  response = rerddap::ed_datasets("griddap", url=url)
+  if (isTRUE(filter_biooracle)) {
+    response = response %>% filter(grepl("biooracle",Dataset.ID))
+  }
+  return(response)
+}
