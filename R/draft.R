@@ -24,8 +24,8 @@
 #' fmt = "nc"
 #' names(constraints) = c("time", "latitude", "longitude")
 #' # Test call
-#' download_griddap_dataset(datasetid, variables, constraints)
-download_griddap_dataset = function(dataset,
+#' download_dataset(datasetid, variables, constraints)
+download_dataset = function(dataset,
                                     variables,
                                     constraints,
                                     erddap_server="https://erddap-test.emodnet.eu/erddap/",
