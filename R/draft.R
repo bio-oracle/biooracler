@@ -29,7 +29,7 @@ download_griddap_dataset = function(erddap_server,
                                     variables,
                                     constraints,
                                     response="nc",
-                                    directory="./",
+                                    directory=FALSE,
                                     verbose=TRUE,
                                     debug=FALSE
 ) {
@@ -65,9 +65,12 @@ download_griddap_dataset = function(erddap_server,
   printer(sprintf("Selected %s variables: %s", length(valid_variables), toString(valid_variables)))
 
   # Set directory for storing data
-  cache_dir <- hoardr::hoard()
-  cache_dir$cache_path_set(full_path=directory)
-  docallargs[["store"]] = rerddap::disk(cache_dir$cache_path_get())
+
+  if (!isFALSE(directory)) {
+    cache_dir <- hoardr::hoard()
+    cache_dir$cache_path_set(full_path=directory)
+    docallargs[["store"]] = rerddap::disk(cache_dir$cache_path_get())
+  }
 
   # Debug flag to check args if needed
   if (debug) {
