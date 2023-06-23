@@ -9,7 +9,7 @@ Description: Environmental ocean data modeled both for the present and for futur
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 Suggests: 
     httr,
     testthat (>= 3.0.0)
