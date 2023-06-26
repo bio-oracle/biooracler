@@ -8,7 +8,6 @@ download_dataset(
   dataset,
   variables,
   constraints,
-  url = "https://erddap-test.emodnet.eu/erddap/",
   fmt = "nc",
   directory = FALSE,
   verbose = TRUE,
@@ -22,17 +21,20 @@ download_dataset(
 Downloads a griddap dataset from an ERDDAP server
 }
 \examples{
-
+\dontrun{
 # Test variables
-url = "https://erddap-test.emodnet.eu/erddap/"
-datasetid = "biooracle_dmo_ds"
+datasetid = "tas_baseline_2000_2020_depthsurf"
 time = c('2001-01-01T00:00:00Z', '2010-01-01T00:00:00Z')
 latitude = c(10, 20)
 longitude = c(120, 130)
-variables = c("o2_mean")
+variables = c("tas_max", "tas_min")
 constraints = list(time, latitude, longitude)
-fmt = "nc"
 names(constraints) = c("time", "latitude", "longitude")
+
 # Test call
 download_dataset(datasetid, variables, constraints)
+}
+}
+\seealso{
+\link{list_layers}
 }

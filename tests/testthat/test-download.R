@@ -15,20 +15,16 @@ test_that("download dataset works", {
   # Test call
   server_is_working <- httr::status_code(httr::HEAD(url)) == 200
   if(server_is_working){
-    test <- download_dataset(datasetid, variables, constraints, url, fmt="csv")
+    test <- download_griddap_dataset(url, datasetid, variables, constraints)
 
     expect_type(test, "list")
-    expect_s3_class(test, "griddap_csv")
-    expect_s3_class(test, "data.frame")
+    expect_s3_class(test, "griddap_nc")
+    expect_s3_class(test$data, "data.frame")
 
-    # Test download to custom dir, and csv response
+    # Test download to custom dir
     temp_dir <- normalizePath(tempdir())
-    test_dir <- download_dataset(datasetid, variables, constraints, url, fmt="nc", directory = temp_dir)
-    expect_s3_class(test_dir, "griddap_nc")
-    expect_s3_class(test_dir$data, "data.frame")
+    test_dir <- download_griddap_dataset(directory = temp_dir, url, datasetid, variables, constraints)
 
-    print(test_dir$summary$filename)
-    print(dirname(test_dir$summary$filename))
     out_dir <- normalizePath(dirname(test_dir$summary$filename))
     expect_equal(out_dir, temp_dir)
   }
