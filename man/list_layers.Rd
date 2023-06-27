@@ -3,15 +3,28 @@
 \name{list_layers}
 \alias{list_layers}
 \title{List the layers in the Bio-Oracle dataset}
+\format{
+\subsection{\code{list_layers()}}{
+
+A data frame with at least three columns
+\describe{
+\item{dataset_id}{Unique identifier of the Bio-Oracle layer, see \link{?dataset_id}. Use in \code{\link[=download_dataset]{download_dataset()}} or \code{\link[=info_layer]{info_layer()}}}
+\item{title}{Title of the Bio-Oracle layer}
+\item{summary}{Description of the Bio-Oracle layer}
+\item{...}{More columns, output from \code{\link[rerddap:ed_search_adv]{rerddap::ed_search_adv()}}}
+}
+}
+}
 \usage{
 list_layers(..., simplify = TRUE)
 }
 \arguments{
 \item{...}{Free text search or pass params to \link[rerddap:ed_search_adv]{rerddap::ed_search_adv}}
+
+\item{simplify}{Logical. Return only basic information? Default is TRUE. See format section.}
 }
 \value{
-a data frame with the dataset ID that can be later passed to \link{download_layers}
-and further information
+A data frame with the dataset ID that can be later passed to \code{\link[=download_dataset]{download_dataset()}}
 }
 \description{
 List the layers in the Bio-Oracle dataset
@@ -20,9 +33,10 @@ List the layers in the Bio-Oracle dataset
 \dontrun{
 list_layers()
 list_layers("Ocean Temperature 2100")
+list_layers("Ocean Temperature 2100", simplify = FALSE)
 list_layers("thetao_ssp119_2020_2100_depthmean")
 }
 }
 \seealso{
-\link{download_layers}
+\code{\link[=download_layers]{download_layers()}}, \link{?ERDDAP}, \link{?dataset_id}
 }

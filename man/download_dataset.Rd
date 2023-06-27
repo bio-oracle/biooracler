@@ -2,28 +2,53 @@
 % Please edit documentation in R/main.R
 \name{download_dataset}
 \alias{download_dataset}
-\title{Downloads a griddap dataset from an ERDDAP server}
+\title{Downloads Bio-Oracle layers from the Bio-Oracle ERDDAP server}
 \usage{
 download_dataset(
-  dataset,
-  variables,
-  constraints,
-  fmt = "nc",
-  directory = FALSE,
+  dataset_id,
+  variables = NULL,
+  constraints = list(),
+  fmt = "raster",
+  directory = NULL,
   verbose = TRUE,
   debug = FALSE
 )
 }
 \arguments{
-\item{verbose}{}
+\item{dataset_id}{An unique identifier of the dataset in \link{?ERDDAP}. See \link{?dataset_id}.}
+
+\item{variables}{Variable names to retrieve from the dataset. If NULL (default), all variables are retrieved.}
+
+\item{constraints}{List to query on dimensions time, latitude and longitude}
+
+\item{fmt}{Output format. One of 'csv', 'nc' or 'raster' (default). See details.}
+
+\item{directory}{Local directory where files are cached. If NULL (default), it is as in \link[rerddap:griddap]{rerddap::griddap}}
+
+\item{verbose}{Logical: Show info messages? Default is TRUE}
+}
+\value{
+A downloaded \code{csv} or \code{nc} file and an object of class \code{griddap_csv}, \code{griddap_nc} or \code{SpatRast}
 }
 \description{
-Downloads a griddap dataset from an ERDDAP server
+Downloads Bio-Oracle layers from the Bio-Oracle ERDDAP server
+}
+\details{
+All Bio-Oracle layers retrieved are downloaded to a cache directory and later read
+into memory in R. Depending on the output format selected on the \code{fmt} argument you
+will obtain:
+\itemize{
+\item \code{csv}: An object of class \code{griddap_csv}. In essence, a \code{data.frame} with extra info.
+A csv file will be downloaded to the cache directory. See \code{?rerrdap::griddap}.
+\item \code{nc}: An object of class \code{griddap_nc}. This is the unclassed output of \code{\link[ncdf4:nc_open]{ncdf4::nc_open()}}.
+A \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file will be downloaded to the cache directory. See \code{?rerrdap::griddap}.
+\item \code{raster}: An object of class \code{SpatRast}, obtained by reading the \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file with \code{terra::rast}.
+}
 }
 \examples{
 \dontrun{
 # Test variables
-datasetid = "tas_baseline_2000_2020_depthsurf"
+dataset_id = "tas_baseline_2000_2020_depthsurf"
 time = c('2001-01-01T00:00:00Z', '2010-01-01T00:00:00Z')
 latitude = c(10, 20)
 longitude = c(120, 130)
@@ -32,9 +57,9 @@ constraints = list(time, latitude, longitude)
 names(constraints) = c("time", "latitude", "longitude")
 
 # Test call
-download_dataset(datasetid, variables, constraints)
+download_dataset(dataset_id, variables, constraints)
 }
 }
 \seealso{
-\link{list_layers}
+\code{\link[=list_layers]{list_layers()}}, \code{\link[=info_layer]{info_layer()}}, \link{?ERDDAP}, \link{?dataset_id}
 }
