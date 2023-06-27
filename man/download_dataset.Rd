@@ -15,7 +15,7 @@ download_dataset(
 )
 }
 \arguments{
-\item{dataset_id}{An unique identifier of the dataset in \link{?ERDDAP}. See \link{?dataset_id}.}
+\item{dataset_id}{An unique identifier of the dataset in \link{ERDDAP}. See \link{dataset_id}.}
 
 \item{variables}{Variable names to retrieve from the dataset. If NULL (default), all variables are retrieved.}
 
@@ -39,9 +39,9 @@ into memory in R. Depending on the output format selected on the \code{fmt} argu
 will obtain:
 \itemize{
 \item \code{csv}: An object of class \code{griddap_csv}. In essence, a \code{data.frame} with extra info.
-A csv file will be downloaded to the cache directory. See \code{?rerrdap::griddap}.
+A csv file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
 \item \code{nc}: An object of class \code{griddap_nc}. This is the unclassed output of \code{\link[ncdf4:nc_open]{ncdf4::nc_open()}}.
-A \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file will be downloaded to the cache directory. See \code{?rerrdap::griddap}.
+A \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
 \item \code{raster}: An object of class \code{SpatRast}, obtained by reading the \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file with \code{terra::rast}.
 }
 }
@@ -61,5 +61,5 @@ download_dataset(dataset_id, variables, constraints)
 }
 }
 \seealso{
-\code{\link[=list_layers]{list_layers()}}, \code{\link[=info_layer]{info_layer()}}, \link{?ERDDAP}, \link{?dataset_id}
+\code{\link[=list_layers]{list_layers()}}, \code{\link[=info_layer]{info_layer()}}, \link{ERDDAP}, \link{dataset_id}
 }

@@ -8,15 +8,16 @@ Returns a help page
 }
 \description{
 The \href{https://bio-oracle.org/}{Bio-Oracle} datasets have an unique identifier in the
-\link{?ERDDAP} server where they are hosted.
+\link{ERDDAP} server where they are hosted.
 
 Despite the title and summary of the dataset (See \code{\link[=list_layers]{list_layers()}}) already describe
 the data included in the dataset, the \code{dataset_id} follow a certain naming that
 indicate the information included inside. For instance:
-
--\code{phyc_baseline_2000_2020_depthsurf}
--\code{thetao_ssp119_2020_2100_depthmean}
--\code{thetao_baseline_2020_2019_depthsurf}
+\itemize{
+\item \code{phyc_baseline_2000_2020_depthsurf}
+\item \code{thetao_ssp119_2020_2100_depthmean}
+\item \code{thetao_baseline_2020_2019_depthsurf}
+}
 \subsection{Environmental variable}{
 
 Indicated the first part of the naming (e.g. \code{phyc}, \code{thetao}). The equivalences are:

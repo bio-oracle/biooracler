@@ -1,6 +1,6 @@
 #' Downloads Bio-Oracle layers from the Bio-Oracle ERDDAP server
 #'
-#' @param dataset_id An unique identifier of the dataset in [?ERDDAP]. See [?dataset_id].
+#' @param dataset_id An unique identifier of the dataset in [ERDDAP]. See [dataset_id].
 #' @param variables Variable names to retrieve from the dataset. If NULL (default), all variables are retrieved.
 #' @param constraints List to query on dimensions time, latitude and longitude
 #' @param fmt Output format. One of 'csv', 'nc' or 'raster' (default). See details.
@@ -14,15 +14,15 @@
 #' will obtain:
 #'
 #' - `csv`: An object of class `griddap_csv`. In essence, a `data.frame` with extra info.
-#'   A csv file will be downloaded to the cache directory. See `?rerrdap::griddap`.
+#'   A csv file will be downloaded to the cache directory. See [rerddap::griddap()].
 #' - `nc`: An object of class `griddap_nc`. This is the unclassed output of [ncdf4::nc_open()].
-#'  A [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file will be downloaded to the cache directory. See `?rerrdap::griddap`.
+#'  A [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file will be downloaded to the cache directory. See [rerddap::griddap()].
 #' - `raster`: An object of class `SpatRast`, obtained by reading the [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file with `terra::rast`.
 #'
 #' @return A downloaded `csv` or `nc` file and an object of class `griddap_csv`, `griddap_nc` or `SpatRast`
 #' @export
 #'
-#' @seealso [list_layers()], [info_layer()], [?ERDDAP], [?dataset_id]
+#' @seealso [list_layers()], [info_layer()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' # Test variables
@@ -159,7 +159,7 @@ do_simplify <- function(df){
 #' @format ## `list_layers()`
 #' A data frame with at least three columns
 #' \describe{
-#'   \item{dataset_id}{Unique identifier of the Bio-Oracle layer, see [?dataset_id]. Use in [download_dataset()] or [info_layer()]}
+#'   \item{dataset_id}{Unique identifier of the Bio-Oracle layer, see [dataset_id]. Use in [download_dataset()] or [info_layer()]}
 #'   \item{title}{Title of the Bio-Oracle layer}
 #'   \item{summary}{Description of the Bio-Oracle layer}
 #'   \item{...}{More columns, output from [rerddap::ed_search_adv()]}
@@ -168,7 +168,7 @@ do_simplify <- function(df){
 #' @return A data frame with the dataset ID that can be later passed to [download_dataset()]
 #' @export
 #'
-#' @seealso [download_layers()], [?ERDDAP], [?dataset_id]
+#' @seealso [download_layers()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' list_layers()
@@ -186,7 +186,7 @@ list_layers <- memoise::memoise(.list_layers)
 #' @return An object of class [info] from the [rerddap] package
 #' @export
 #'
-#' @seealso [list_layers()], [download_dataset()], [?ERDDAP], [?dataset_id]
+#' @seealso [list_layers()], [download_dataset()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' info_layer("thetao_ssp119_2020_2100_depthmean")

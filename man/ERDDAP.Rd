@@ -31,7 +31,7 @@ can access it at:
 
 https://github.com/bio-oracle/pyo_oracle/
 
-Each dataset in the Bio-Oracle ERDDAP server is identified by a \link{?dataset_id}.
+Each dataset in the Bio-Oracle ERDDAP server is identified by a \link{dataset_id}.
 }
 \examples{
 \dontrun{?ERDDAP}

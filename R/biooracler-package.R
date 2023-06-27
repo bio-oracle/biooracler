@@ -33,7 +33,7 @@ NULL
 #'
 #' https://github.com/bio-oracle/pyo_oracle/
 #'
-#' Each dataset in the Bio-Oracle ERDDAP server is identified by a [?dataset_id].
+#' Each dataset in the Bio-Oracle ERDDAP server is identified by a [dataset_id].
 #'
 #' @return Returns a help page
 #'
@@ -45,17 +45,20 @@ NULL
 #'
 #' @description
 #' The [Bio-Oracle](https://bio-oracle.org/) datasets have an unique identifier in the
-#' [?ERDDAP] server where they are hosted.
+#' [ERDDAP] server where they are hosted.
 #'
 #' Despite the title and summary of the dataset (See [list_layers()]) already describe
 #' the data included in the dataset, the `dataset_id` follow a certain naming that
 #' indicate the information included inside. For instance:
 #'
-#' -`phyc_baseline_2000_2020_depthsurf`
-#' -`thetao_ssp119_2020_2100_depthmean`
-#' -`thetao_baseline_2020_2019_depthsurf`
+#' - `phyc_baseline_2000_2020_depthsurf`
 #'
-#' ### Environmental variable
+#' - `thetao_ssp119_2020_2100_depthmean`
+#'
+#' - `thetao_baseline_2020_2019_depthsurf`
+#'
+#'
+#' ## Environmental variable
 #' Indicated the first part of the naming (e.g. `phyc`, `thetao`). The equivalences are:
 #' - `chl` = Chlorophyll
 #' - `clt` = Total Cloud Fraction
@@ -76,7 +79,7 @@ NULL
 #' - `terrain` = Terrain
 #' - `thetao` = Ocean Temperature
 #'
-#' ### Time: Present/Past baseline or Future CMIIP6 Climate Change Projection projection
+#' ## Time: Present/Past baseline or Future CMIIP6 Climate Change Projection projection
 #'
 #' The part with `baseline` or `ssp119` indicates if the layer contains present or past
 #' decades, or future climate change projections under the provisions of the
@@ -93,7 +96,7 @@ NULL
 #' [Copernicus Marine Service](https://marine.copernicus.eu/) data. It is named baseline
 #' as this interpolated layers are the baseline to model the future predictions.
 #'
-#' ### Surface or Benthic
+#' ## Surface or Benthic
 #'
 #' The Bio-Oracle datasets includes modelled environmental data for the surface sea water
 #' layer (`depthsurf`), but also for the bottom of the ocean. Note that all datasets with
