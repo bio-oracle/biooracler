@@ -26,6 +26,8 @@ download_dataset(
 \item{directory}{Local directory where files are cached. If NULL (default), it is as in \link[rerddap:griddap]{rerddap::griddap}}
 
 \item{verbose}{Logical: Show info messages? Default is TRUE}
+
+\item{debug}{Logical: Print extra information that helps debugging? Default is FALSE}
 }
 \value{
 A downloaded \code{csv} or \code{nc} file and an object of class \code{griddap_csv}, \code{griddap_nc} or \code{SpatRast}

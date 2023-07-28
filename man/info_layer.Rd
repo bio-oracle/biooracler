@@ -7,7 +7,7 @@
 info_layer(dataset_id)
 }
 \arguments{
-\item{dataset_id}{}
+\item{dataset_id}{An unique identifier of the dataset in \link{ERDDAP}. See \link{dataset_id}.}
 }
 \value{
 An object of class \link{info} from the \link{rerddap} package

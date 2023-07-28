@@ -11,3 +11,6 @@ erddap.bio_oracle.org <- function(){
 }
 
 
+fix_memoise_cran_note <- function(){
+  f <- memoise::memoise(print(""))
+}

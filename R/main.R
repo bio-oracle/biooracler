@@ -6,6 +6,7 @@
 #' @param fmt Output format. One of 'csv', 'nc' or 'raster' (default). See details.
 #' @param directory Local directory where files are cached. If NULL (default), it is as in [rerddap::griddap]
 #' @param verbose Logical: Show info messages? Default is TRUE
+#' @param debug Logical: Print extra information that helps debugging? Default is FALSE
 #'
 #' @details
 #'
@@ -168,7 +169,7 @@ do_simplify <- function(df){
 #' @return A data frame with the dataset ID that can be later passed to [download_dataset()]
 #' @export
 #'
-#' @seealso [download_layers()], [ERDDAP], [dataset_id]
+#' @seealso [download_dataset()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' list_layers()
@@ -181,7 +182,7 @@ list_layers <- memoise::memoise(.list_layers)
 
 #' Gets detailed information about a single Bio-Oracle layer
 #'
-#' @param dataset_id
+#' @param dataset_id An unique identifier of the dataset in [ERDDAP]. See [dataset_id].
 #'
 #' @return An object of class [info] from the [rerddap] package
 #' @export
