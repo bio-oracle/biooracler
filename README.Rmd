@@ -29,3 +29,64 @@ You can install the development version of biooracler from [GitHub](https://gith
 devtools::install_github("bio-oracle/biooracler")
 ```
 
+## List Layers
+
+You can look-up available layers or search specific environmental variables.
+
+### Search available layers
+```{r}
+library(biooracler)
+list_layers("Ocean Temperature")
+```
+
+### See all available layers
+```{r}
+list_layers()
+```
+
+### See all information of all layers
+```{r}
+list_layers(simplify = FALSE)
+```
+
+
+## Layer information
+```{r}
+info_layer("tas_baseline_2000_2020_depthsurf")
+```
+
+
+## Download layers
+
+First you need to define dataset to download together with the time, latitude and longitude constrains
+
+```{r}
+dataset_id <- "tas_baseline_2000_2020_depthsurf"
+
+time = c('2001-01-01T00:00:00Z', '2010-01-01T00:00:00Z')
+latitude = c(10, 20)
+longitude = c(120, 130)
+
+constraints = list(time, latitude, longitude)
+names(constraints) = c("time", "latitude", "longitude")
+```
+
+Define also the variables to download:
+```{r}
+variables = c("tas_max", "tas_min")
+```
+
+Perform download
+```{r}
+layers <- download_dataset(dataset_id, variables, constraints)
+```
+
+You can modify the download path and the output type with the arguments `directory` and `fmt` respectively.
+
+```{r}
+dir <- tempdir()
+download_dataset(dataset_id, variables, constraints, fmt = "csv", directory = dir)
+
+
+download_dataset(dataset_id, variables, constraints, fmt = "raster", directory = dir)
+```
