@@ -36,9 +36,9 @@
 #' names(constraints) = c("time", "latitude", "longitude")
 #'
 #' # Test call
-#' download_dataset(dataset_id, variables, constraints)
+#' download_layers(dataset_id, variables, constraints)
 #' }
-download_dataset = function(dataset_id,
+download_layers = function(dataset_id,
                                     variables = NULL,
                                     constraints = list(),
                                     fmt = "raster",
@@ -160,16 +160,16 @@ do_simplify <- function(df){
 #' @format ## `list_layers()`
 #' A data frame with at least three columns
 #' \describe{
-#'   \item{dataset_id}{Unique identifier of the Bio-Oracle layer, see [dataset_id]. Use in [download_dataset()] or [info_layer()]}
+#'   \item{dataset_id}{Unique identifier of the Bio-Oracle layer, see [dataset_id]. Use in [download_layers()] or [info_layer()]}
 #'   \item{title}{Title of the Bio-Oracle layer}
 #'   \item{summary}{Description of the Bio-Oracle layer}
 #'   \item{...}{More columns, output from [rerddap::ed_search_adv()]}
 #' }
 #'
-#' @return A data frame with the dataset ID that can be later passed to [download_dataset()]
+#' @return A data frame with the dataset ID that can be later passed to [download_layers()]
 #' @export
 #'
-#' @seealso [download_dataset()], [ERDDAP], [dataset_id]
+#' @seealso [download_layers()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' list_layers()
@@ -187,7 +187,7 @@ list_layers <- memoise::memoise(.list_layers)
 #' @return An object of class [info] from the [rerddap] package
 #' @export
 #'
-#' @seealso [list_layers()], [download_dataset()], [ERDDAP], [dataset_id]
+#' @seealso [list_layers()], [download_layers()], [ERDDAP], [dataset_id]
 #'
 #' @examples \dontrun{
 #' info_layer("thetao_ssp119_2020_2100_depthmean")

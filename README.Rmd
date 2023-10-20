@@ -78,15 +78,15 @@ variables = c("tas_max", "tas_min")
 
 Perform download
 ```{r}
-layers <- download_dataset(dataset_id, variables, constraints)
+layers <- download_layers(dataset_id, variables, constraints)
 ```
 
 You can modify the download path and the output type with the arguments `directory` and `fmt` respectively.
 
 ```{r}
 dir <- tempdir()
-download_dataset(dataset_id, variables, constraints, fmt = "csv", directory = dir)
+download_layers(dataset_id, variables, constraints, fmt = "csv", directory = dir)
 
 
-download_dataset(dataset_id, variables, constraints, fmt = "raster", directory = dir)
+download_layers(dataset_id, variables, constraints, fmt = "raster", directory = dir)
 ```

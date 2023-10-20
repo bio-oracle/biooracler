@@ -13,24 +13,24 @@ test_that("download dataset works", {
   skip_on_cran()
 
   # Test call
-  test <- download_dataset(dataset_id, variables, constraints, fmt = "csv")
+  test <- download_layers(dataset_id, variables, constraints, fmt = "csv")
     expect_type(test, "list")
     expect_s3_class(test, "griddap_csv")
     expect_s3_class(test, "data.frame")
 
-  test <- download_dataset(dataset_id, variables, constraints, fmt = "nc")
+  test <- download_layers(dataset_id, variables, constraints, fmt = "nc")
     expect_type(test, "list")
     expect_s3_class(test, "griddap_nc")
     expect_s3_class(test, "nc")
 
-  test <- download_dataset(dataset_id, variables, constraints, fmt = "raster")
+  test <- download_layers(dataset_id, variables, constraints, fmt = "raster")
     expect_type(test, "S4")
     expect_s4_class(test, "SpatRaster")
 
 
   # Test download to custom dir, and nc response
   temp_dir <- normalizePath(tempdir())
-  test_dir <- download_dataset(dataset_id, variables, constraints, fmt="nc", directory = temp_dir)
+  test_dir <- download_layers(dataset_id, variables, constraints, fmt="nc", directory = temp_dir)
     expect_s3_class(test_dir, "griddap_nc")
     expect_s3_class(test_dir$data, "data.frame")
 

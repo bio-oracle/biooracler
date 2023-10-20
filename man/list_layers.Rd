@@ -8,7 +8,7 @@
 
 A data frame with at least three columns
 \describe{
-\item{dataset_id}{Unique identifier of the Bio-Oracle layer, see \link{dataset_id}. Use in \code{\link[=download_dataset]{download_dataset()}} or \code{\link[=info_layer]{info_layer()}}}
+\item{dataset_id}{Unique identifier of the Bio-Oracle layer, see \link{dataset_id}. Use in \code{\link[=download_layers]{download_layers()}} or \code{\link[=info_layer]{info_layer()}}}
 \item{title}{Title of the Bio-Oracle layer}
 \item{summary}{Description of the Bio-Oracle layer}
 \item{...}{More columns, output from \code{\link[rerddap:ed_search_adv]{rerddap::ed_search_adv()}}}
@@ -24,7 +24,7 @@ list_layers(..., simplify = TRUE)
 \item{simplify}{Logical. Return only basic information? Default is TRUE. See format section.}
 }
 \value{
-A data frame with the dataset ID that can be later passed to \code{\link[=download_dataset]{download_dataset()}}
+A data frame with the dataset ID that can be later passed to \code{\link[=download_layers]{download_layers()}}
 }
 \description{
 List the layers in the Bio-Oracle dataset
@@ -38,5 +38,5 @@ list_layers("thetao_ssp119_2020_2100_depthmean")
 }
 }
 \seealso{
-\code{\link[=download_dataset]{download_dataset()}}, \link{ERDDAP}, \link{dataset_id}
+\code{\link[=download_layers]{download_layers()}}, \link{ERDDAP}, \link{dataset_id}
 }

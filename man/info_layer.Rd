@@ -21,5 +21,5 @@ info_layer("thetao_ssp119_2020_2100_depthmean")
 }
 }
 \seealso{
-\code{\link[=list_layers]{list_layers()}}, \code{\link[=download_dataset]{download_dataset()}}, \link{ERDDAP}, \link{dataset_id}
+\code{\link[=list_layers]{list_layers()}}, \code{\link[=download_layers]{download_layers()}}, \link{ERDDAP}, \link{dataset_id}
 }
