@@ -50,6 +50,7 @@ download_layers = function(dataset_id,
   checkmate::assert_character(dataset_id, len = 1)
   checkmate::assert_choice(dataset_id, list_layers()$dataset_id)
   checkmate::assert_list(constraints, min.len = 1, any.missing = FALSE, unique = TRUE)
+  checkmate::assert_names(names(constraints), "unique", subset.of = c("time", "longitude", "latitude"))
   checkmate::assert_character(fmt, len = 1)
   checkmate::assert_choice(fmt, c("csv", "nc", "raster"))
   checkmate::assert_logical(verbose, len = 1)

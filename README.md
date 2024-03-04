@@ -51,7 +51,7 @@ list_layers("Ocean Temperature")
 
 ``` r
 list_layers()
-#> # A tibble: 321 × 3
+#> # A tibble: 325 × 3
 #>    dataset_id                       title                                summary
 #>    <chr>                            <chr>                                <chr>  
 #>  1 tas_baseline_2000_2020_depthsurf Bio-Oracle AirTemperature [depthSur… "Uses …
@@ -64,14 +64,14 @@ list_layers()
 #>  8 chl_baseline_2000_2018_depthsurf Bio-Oracle Chlorophyll [depthSurf] … "Uses …
 #>  9 chl_ssp119_2020_2100_depthsurf   Bio-Oracle Chlorophyll [depthSurf] … "Uses …
 #> 10 chl_ssp126_2020_2100_depthsurf   Bio-Oracle Chlorophyll [depthSurf] … "Uses …
-#> # ℹ 311 more rows
+#> # ℹ 315 more rows
 ```
 
 ### See all information of all layers
 
 ``` r
 list_layers(simplify = FALSE)
-#> # A tibble: 321 × 16
+#> # A tibble: 325 × 16
 #>    griddap          subset tabledap make_a_graph wms   files title summary fgdc 
 #>    <chr>            <chr>  <chr>    <chr>        <chr> <chr> <chr> <chr>   <chr>
 #>  1 https://erddap.… ""     ""       https://erd… http… http… Bio-… "Uses … http…
@@ -84,7 +84,7 @@ list_layers(simplify = FALSE)
 #>  8 https://erddap.… ""     ""       https://erd… http… http… Bio-… "Uses … http…
 #>  9 https://erddap.… ""     ""       https://erd… http… http… Bio-… "Uses … http…
 #> 10 https://erddap.… ""     ""       https://erd… http… http… Bio-… "Uses … http…
-#> # ℹ 311 more rows
+#> # ℹ 315 more rows
 #> # ℹ 7 more variables: iso_19115 <chr>, info <chr>, background_info <chr>,
 #> #   rss <chr>, email <chr>, institution <chr>, dataset_id <chr>
 ```
@@ -118,7 +118,8 @@ info_layer("tas_baseline_2000_2020_depthsurf")
 ## Download layers
 
 First you need to define dataset to download together with the time,
-latitude and longitude constrains
+latitude and longitude constrains. The constains must be provided as a
+named list containing at least one of: time, latitude or longitude.
 
 ``` r
 dataset_id <- "tas_baseline_2000_2020_depthsurf"
@@ -156,8 +157,8 @@ download_layers(dataset_id, variables, constraints, fmt = "csv", directory = dir
 #> Dataset info available at: http://erddap.bio-oracle.org/erddap/griddap/tas_baseline_2000_2020_depthsurf.html
 #> Selected 2 variables: tas_max, tas_min
 #> <ERDDAP griddap> tas_baseline_2000_2020_depthsurf
-#>    Path: [C:\Users\SALVAD~1\AppData\Local\Temp\RtmpEjAOFu\8774b92c003f15b9f929254b0341496f.csv]
-#>    Last updated: [2023-10-20 12:31:25.224197]
+#>    Path: [/tmp/RtmpXUWMRn/8774b92c003f15b9f929254b0341496f.csv]
+#>    Last updated: [2024-03-04 10:49:55.735117]
 #>    File size:    [5.59 mb]
 #>    Dimensions:   [80802 X 5]
 #> 

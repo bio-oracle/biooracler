@@ -58,7 +58,7 @@ info_layer("tas_baseline_2000_2020_depthsurf")
 
 ## Download layers
 
-First you need to define dataset to download together with the time, latitude and longitude constrains
+First you need to define dataset to download together with the time, latitude and longitude constrains. The constains must be provided as a named list containing at least one of: time, latitude or longitude.
 
 ```{r}
 dataset_id <- "tas_baseline_2000_2020_depthsurf"
