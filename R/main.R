@@ -67,6 +67,8 @@ download_layers = function(dataset_id,
     fmt <- "nc"
   }
 
+  dataset_id <- tolower(dataset_id)
+
   # Args to be passed to griddap call later on
   docallargs = list()
   docallargs[["fmt"]] = fmt
