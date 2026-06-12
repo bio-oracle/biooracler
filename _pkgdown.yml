@@ -1,0 +1,18 @@
+url: https://bio-oracle.github.io/biooracler/
+
+template:
+  bootstrap: 5
+
+reference:
+- title: Download data
+  contents:
+  - download_layers
+- title: Discover layers
+  contents:
+  - list_layers
+  - info_layer
+- title: Background
+  contents:
+  - dataset_id
+  - ERDDAP
+  - biooracler-package
