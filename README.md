@@ -4,6 +4,10 @@
 # biooracler
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/bio-oracle/biooracler/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bio-oracle/biooracler/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 `biooracler` provides access to the
@@ -13,12 +17,11 @@ partly replace
 
 ## Installation
 
-You can install the development version of biooracler from
-[GitHub](https://github.com/) with:
+You can install biooracler from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("bio-oracle/biooracler")
+# install.packages("remotes")
+remotes::install_github("bio-oracle/biooracler")
 ```
 
 ## List Layers

@@ -7,10 +7,5 @@
 #'
 #' @noRd
 erddap.bio_oracle.org <- function(){
-  getOption("ERDDAP.BIO-ORACLE.URL", "http://erddap.bio-oracle.org/erddap/")
-}
-
-
-fix_memoise_cran_note <- function(){
-  f <- memoise::memoise(print(""))
+  getOption("ERDDAP.BIO-ORACLE.URL", "https://erddap.bio-oracle.org/erddap/")
 }

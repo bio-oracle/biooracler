@@ -1,18 +1,18 @@
 Package: biooracler
-Title: Import environmental ocean data from Bio-Oracle via ERDDAP
-Version: 0.0.0.9000
+Title: Import Environmental Ocean Data from Bio-Oracle via ERDDAP
+Version: 1.0.0
 Authors@R: c(
       person("Salvador", "Fernandez", email = "salvador.fernandez@vliz.be", role = c("aut", "cre")),
-      person("Vinicius", "Salazar", role = c("ctb")))
-Description: Environmental ocean data modeled both for the present and for future climate change 
-             scenarios offered by the Bio-Oracle dataset <https://bio-oracle.org/> via ERDDAP server. 
+      person("Vinicius", "Salazar", email = "viniws@gmail.com", role = "aut"))
+Description: Environmental ocean data modeled both for the present and for future climate change
+             scenarios offered by the Bio-Oracle dataset <https://bio-oracle.org/> via ERDDAP server.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-URL: https://bio-oracle.org/; https://erddap.bio-oracle.org/
-Suggests: 
-    httr,
+RoxygenNote: 7.3.3
+URL: https://bio-oracle.org/, https://erddap.bio-oracle.org/
+BugReports: https://github.com/bio-oracle/biooracler/issues
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 

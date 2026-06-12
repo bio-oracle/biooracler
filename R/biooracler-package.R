@@ -2,6 +2,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom memoise memoise
 ## usethis namespace: end
 NULL
 
@@ -10,13 +11,13 @@ NULL
 #'
 #' @description
 #' The [Bio-Oracle](https://bio-oracle.org/) dataset is made available via an ERDDAP
-#' server hosted by the [Flanders Marine Institute (VLIZ)](https://www.vliz.be).
+#' server hosted by the [Flanders Marine Institute (VLIZ)](https://www.vliz.be/en).
 #'
 #' ERDDAP is a data server that gives you simple, consistent way to download subsets
 #' of scientific datasets in common file formats and make graphs and maps. The Bio-Oracle
 #' ERDDAP installation is available online at:
 #'
-#' http://erddap.bio-oracle.org/erddap/
+#' https://erddap.bio-oracle.org/erddap/
 #'
 #' ERDDAP offers a REST API that can be consumed by other software For instance,
 #' there is an R package that reads data from ERDDAP named [rerddap]. This package is
@@ -55,7 +56,7 @@ NULL
 #'
 #' - `thetao_ssp119_2020_2100_depthmean`
 #'
-#' - `thetao_baseline_2020_2019_depthsurf`
+#' - `thetao_baseline_2000_2019_depthsurf`
 #'
 #'
 #' ## Environmental variable
@@ -68,7 +69,6 @@ NULL
 #' - `o2` = Dissolved Molecular Oxygen
 #' - `ph` = pH
 #' - `phyc` = Total Phytoplankton
-#' - `phyc` = Phytoplankton
 #' - `po4` = Phosphate
 #' - `si` = Silicate
 #' - `siconc` = Sea Ice Cover
@@ -84,7 +84,7 @@ NULL
 #' The part with `baseline` or `ssp119` indicates if the layer contains present or past
 #' decades, or future climate change projections under the provisions of the
 #' [Intergovernmental Panel on Climate Change](https://www.ipcc.ch/) (IPCC) 6th report. This report features the
-#' 6th generation of [Coupled Model Intercomparison Projects](https://www.carbonbrief.org/qa-how-do-climate-models-work#cmip) (CMIP6)
+#' 6th generation of [Coupled Model Intercomparison Projects](https://www.carbonbrief.org/qa-how-do-climate-models-work/#cmip) (CMIP6)
 #' and describes a few [Shared Socioeconomic Pathways](https://www.carbonbrief.org/explainer-how-shared-socioeconomic-pathways-explore-future-climate-change/) (SSPs), which are different
 #' climate change scenarios.
 #'

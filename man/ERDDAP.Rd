@@ -8,22 +8,22 @@ Returns a help page
 }
 \description{
 The \href{https://bio-oracle.org/}{Bio-Oracle} dataset is made available via an ERDDAP
-server hosted by the \href{https://www.vliz.be}{Flanders Marine Institute (VLIZ)}.
+server hosted by the \href{https://www.vliz.be/en}{Flanders Marine Institute (VLIZ)}.
 
 ERDDAP is a data server that gives you simple, consistent way to download subsets
 of scientific datasets in common file formats and make graphs and maps. The Bio-Oracle
 ERDDAP installation is available online at:
 
-http://erddap.bio-oracle.org/erddap/
+https://erddap.bio-oracle.org/erddap/
 
 ERDDAP offers a REST API that can be consumed by other software For instance,
-there is an R package that reads data from ERDDAP named \link{rerddap}. This package is
-the backbone behind \code{biooracler}: In fact, \code{biooracler} just wraps \link{rerddap} in a
+there is an R package that reads data from ERDDAP named \link[rerddap:rerddap]{rerddap::rerddap}. This package is
+the backbone behind \code{biooracler}: In fact, \code{biooracler} just wraps \link[rerddap:rerddap]{rerddap::rerddap} in a
 convenient way to only read data from the Bio-Oracle ERDDAP server. But the Bio-Oracle
 ERDDAP server is independent from the \code{biooracler} package.
 
 You are welcome to access the Bio-Oracle ERDDAP server in your preferred way,
-including via the \link{rerddap} R package. This will ease the combination of the
+including via the \link[rerddap:rerddap]{rerddap::rerddap} R package. This will ease the combination of the
 Bio-Oracle dataset with several other ERDDAP servers.
 
 In addition, there is a Python extension that mimics the methods of \code{biooracler}. You
