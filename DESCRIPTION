@@ -13,7 +13,10 @@ RoxygenNote: 7.3.3
 URL: https://bio-oracle.org/, https://erddap.bio-oracle.org/
 BugReports: https://github.com/bio-oracle/biooracler/issues
 Suggests:
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
+VignetteBuilder: knitr
 Config/testthat/edition: 3
 Imports: 
     checkmate,
