@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^\.github$
+^.*\.Rcheck$
+^biooracler_.*\.tar\.gz$

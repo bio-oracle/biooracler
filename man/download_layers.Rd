@@ -47,8 +47,8 @@ will obtain:
 \item \code{csv}: An object of class \code{griddap_csv}. In essence, a \code{data.frame} with extra info.
 A csv file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
 \item \code{nc}: An object of class \code{griddap_nc}. This is the unclassed output of \code{\link[ncdf4:nc_open]{ncdf4::nc_open()}}.
-A \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
-\item \code{raster}: An object of class \code{SpatRast}, obtained by reading the \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file with \code{terra::rast}.
+A \href{https://www.unidata.ucar.edu/software/netcdf}{NetCDF} file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
+\item \code{raster}: An object of class \code{SpatRast}, obtained by reading the \href{https://www.unidata.ucar.edu/software/netcdf}{NetCDF} file with \code{terra::rast}.
 }
 
 By default, downloaded files are named with a cryptic hash (as in \code{\link[rerddap:griddap]{rerddap::griddap()}}).
@@ -58,9 +58,9 @@ extension matching \code{fmt}. The original cached file is preserved so caching 
 
 The \code{time} constraint is a \strong{range}: every time step that falls within the
 \verb{[start, end]} interval is returned as a separate layer. Decadal baseline datasets
-store snapshots on decade boundaries, so a range like \code{c('2000-01-01T00:00:00Z', '2010-01-01T00:00:00Z')}
-spans two snapshots (two layers), while \code{c('2005-01-01T00:00:00Z', '2010-01-01T00:00:00Z')}
-spans one (single layer). To get a single time step, set the start and end of \code{time} to the same value.
+store snapshots on decade boundaries, so a range like \code{c('2000-01-01T00:00:00Z', '2010-01-01T00:00:00Z')} spans two snapshots (two layers), while
+\code{c('2005-01-01T00:00:00Z', '2010-01-01T00:00:00Z')} spans one (single layer). To get a
+single time step, set the start and end of \code{time} to the same value.
 
 ERDDAP reports coordinates at cell \strong{centers}. As a result, the extent of a returned
 \code{raster} reaches half a cell-width beyond the nominal bounds (e.g. slightly past +/-180

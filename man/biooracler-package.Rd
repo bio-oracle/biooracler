@@ -4,23 +4,25 @@
 \name{biooracler-package}
 \alias{biooracler}
 \alias{biooracler-package}
-\title{biooracler: Import environmental ocean data from Bio-Oracle via ERDDAP}
+\title{biooracler: Import Environmental Ocean Data from Bio-Oracle via ERDDAP}
 \description{
 Environmental ocean data modeled both for the present and for future climate change scenarios offered by the Bio-Oracle dataset \url{https://bio-oracle.org/} via ERDDAP server.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://bio-oracle.org/; https://erddap.bio-oracle.org/}
+  \item \url{https://bio-oracle.org/}
+  \item \url{https://erddap.bio-oracle.org/}
+  \item Report bugs at \url{https://github.com/bio-oracle/biooracler/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Salvador Fernandez \email{salvador.fernandez@vliz.be}
 
-Other contributors:
+Authors:
 \itemize{
-  \item Vinicius Salazar [contributor]
+  \item Vinicius Salazar \email{viniws@gmail.com}
 }
 
 }

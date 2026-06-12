@@ -16,7 +16,7 @@ indicate the information included inside. For instance:
 \itemize{
 \item \code{phyc_baseline_2000_2020_depthsurf}
 \item \code{thetao_ssp119_2020_2100_depthmean}
-\item \code{thetao_baseline_2020_2019_depthsurf}
+\item \code{thetao_baseline_2000_2019_depthsurf}
 }
 \subsection{Environmental variable}{
 
@@ -30,7 +30,6 @@ Indicated the first part of the naming (e.g. \code{phyc}, \code{thetao}). The eq
 \item \code{o2} = Dissolved Molecular Oxygen
 \item \code{ph} = pH
 \item \code{phyc} = Total Phytoplankton
-\item \code{phyc} = Phytoplankton
 \item \code{po4} = Phosphate
 \item \code{si} = Silicate
 \item \code{siconc} = Sea Ice Cover
@@ -48,7 +47,7 @@ Indicated the first part of the naming (e.g. \code{phyc}, \code{thetao}). The eq
 The part with \code{baseline} or \code{ssp119} indicates if the layer contains present or past
 decades, or future climate change projections under the provisions of the
 \href{https://www.ipcc.ch/}{Intergovernmental Panel on Climate Change} (IPCC) 6th report. This report features the
-6th generation of \href{https://www.carbonbrief.org/qa-how-do-climate-models-work#cmip}{Coupled Model Intercomparison Projects} (CMIP6)
+6th generation of \href{https://www.carbonbrief.org/qa-how-do-climate-models-work/#cmip}{Coupled Model Intercomparison Projects} (CMIP6)
 and describes a few \href{https://www.carbonbrief.org/explainer-how-shared-socioeconomic-pathways-explore-future-climate-change/}{Shared Socioeconomic Pathways} (SSPs), which are different
 climate change scenarios.
 

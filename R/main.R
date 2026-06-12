@@ -19,8 +19,8 @@
 #' - `csv`: An object of class `griddap_csv`. In essence, a `data.frame` with extra info.
 #'   A csv file will be downloaded to the cache directory. See [rerddap::griddap()].
 #' - `nc`: An object of class `griddap_nc`. This is the unclassed output of [ncdf4::nc_open()].
-#'  A [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file will be downloaded to the cache directory. See [rerddap::griddap()].
-#' - `raster`: An object of class `SpatRast`, obtained by reading the [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file with `terra::rast`.
+#'  A [NetCDF](https://www.unidata.ucar.edu/software/netcdf) file will be downloaded to the cache directory. See [rerddap::griddap()].
+#' - `raster`: An object of class `SpatRast`, obtained by reading the [NetCDF](https://www.unidata.ucar.edu/software/netcdf) file with `terra::rast`.
 #'
 #' By default, downloaded files are named with a cryptic hash (as in [rerddap::griddap()]).
 #' Pass `filename` to save a human-readable copy, e.g. `filename = "chl_2040_ssp585"`. The
@@ -65,9 +65,9 @@ download_layers = function(dataset_id,
                                     verbose = TRUE,
                                     debug = FALSE
 ) {
-  # Assertions
+  # Assertions. Cheap local argument checks run first, so calls with bad
+  # arguments fail fast before contacting the ERDDAP server.
   checkmate::assert_character(dataset_id, len = 1)
-  checkmate::assert_choice(dataset_id, list_layers()$dataset_id)
   checkmate::assert_list(constraints, min.len = 1, any.missing = FALSE, unique = TRUE)
   checkmate::assert_names(names(constraints), "unique", subset.of = c("time", "longitude", "latitude"))
   checkmate::assert_character(fmt, len = 1)
@@ -75,6 +75,8 @@ download_layers = function(dataset_id,
   checkmate::assert_character(filename, len = 1, null.ok = TRUE)
   checkmate::assert_logical(verbose, len = 1)
   checkmate::assert_logical(debug, len = 1)
+  # This check queries the server for the list of available datasets.
+  checkmate::assert_choice(dataset_id, list_layers()$dataset_id)
 
   # Config
   printer = function(message, verbose=parent.frame()$verbose) {
@@ -179,7 +181,6 @@ griddap_to_terra <- function(res){
   }else{
     layers <- rerddap::ed_search_adv(..., url = erddap.bio_oracle.org())
     layers <- dplyr::bind_rows(layers$alldata)
-    attr(layers, "class")
   }
 
   # Aftermath
@@ -231,7 +232,7 @@ do_simplify <- function(df){
 #' list_layers("Ocean Temperature 2100", simplify = FALSE)
 #' list_layers("thetao_ssp119_2020_2100_depthmean")
 #' }
-list_layers <- memoise::memoise(.list_layers)
+list_layers <- memoise(.list_layers)
 
 
 #' Gets detailed information about a single Bio-Oracle layer

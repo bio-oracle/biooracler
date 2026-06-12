@@ -10,7 +10,7 @@ info_layer(dataset_id)
 \item{dataset_id}{An unique identifier of the dataset in \link{ERDDAP}. See \link{dataset_id}.}
 }
 \value{
-An object of class \link{info} from the \link{rerddap} package
+An object of class \link[rerddap:info]{rerddap::info} from the \link[rerddap:rerddap]{rerddap::rerddap} package
 }
 \description{
 Gets detailed information about a single Bio-Oracle layer
