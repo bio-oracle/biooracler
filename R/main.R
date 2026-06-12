@@ -5,6 +5,8 @@
 #' @param constraints List to query on dimensions time, latitude and longitude
 #' @param fmt Output format. One of 'csv', 'nc' or 'raster' (default). See details.
 #' @param directory Local directory where files are cached. If NULL (default), it is as in [rerddap::griddap]
+#' @param filename Optional name (without extension) for the downloaded file. If NULL
+#'   (default), the cryptic cache name from [rerddap::griddap] is kept. See details.
 #' @param verbose Logical: Show info messages? Default is TRUE
 #' @param debug Logical: Print extra information that helps debugging? Default is FALSE
 #'
@@ -19,6 +21,22 @@
 #' - `nc`: An object of class `griddap_nc`. This is the unclassed output of [ncdf4::nc_open()].
 #'  A [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file will be downloaded to the cache directory. See [rerddap::griddap()].
 #' - `raster`: An object of class `SpatRast`, obtained by reading the [NetCDF](https://www.unidata.ucar.edu/software/netcdf/) file with `terra::rast`.
+#'
+#' By default, downloaded files are named with a cryptic hash (as in [rerddap::griddap()]).
+#' Pass `filename` to save a human-readable copy, e.g. `filename = "chl_2040_ssp585"`. The
+#' copy is written to `directory` (or the cache directory if `directory` is NULL) with the
+#' extension matching `fmt`. The original cached file is preserved so caching still works.
+#'
+#' The `time` constraint is a **range**: every time step that falls within the
+#' `[start, end]` interval is returned as a separate layer. Decadal baseline datasets
+#' store snapshots on decade boundaries, so a range like `c('2000-01-01T00:00:00Z',
+#' '2010-01-01T00:00:00Z')` spans two snapshots (two layers), while
+#' `c('2005-01-01T00:00:00Z', '2010-01-01T00:00:00Z')` spans one (single layer). To get a
+#' single time step, set the start and end of `time` to the same value.
+#'
+#' ERDDAP reports coordinates at cell **centers**. As a result, the extent of a returned
+#' `raster` reaches half a cell-width beyond the nominal bounds (e.g. slightly past +/-180
+#' longitude). This is expected: the data covers the full grid and is not shifted.
 #'
 #' @return A downloaded `csv` or `nc` file and an object of class `griddap_csv`, `griddap_nc` or `SpatRast`
 #' @export
@@ -43,6 +61,7 @@ download_layers = function(dataset_id,
                                     constraints = list(),
                                     fmt = "raster",
                                     directory = NULL,
+                                    filename = NULL,
                                     verbose = TRUE,
                                     debug = FALSE
 ) {
@@ -53,6 +72,7 @@ download_layers = function(dataset_id,
   checkmate::assert_names(names(constraints), "unique", subset.of = c("time", "longitude", "latitude"))
   checkmate::assert_character(fmt, len = 1)
   checkmate::assert_choice(fmt, c("csv", "nc", "raster"))
+  checkmate::assert_character(filename, len = 1, null.ok = TRUE)
   checkmate::assert_logical(verbose, len = 1)
   checkmate::assert_logical(debug, len = 1)
 
@@ -72,7 +92,13 @@ download_layers = function(dataset_id,
   # Args to be passed to griddap call later on
   docallargs = list()
   docallargs[["fmt"]] = fmt
-  out = rerddap::info(datasetid=dataset_id, url = erddap.bio_oracle.org())
+  out = tryCatch(
+    rerddap::info(datasetid = dataset_id, url = erddap.bio_oracle.org()),
+    error = function(e) stop(
+      "Could not retrieve dataset info from the Bio-Oracle ERDDAP server. ",
+      "Check your internet connection or the server status at ",
+      "https://erddap.bio-oracle.org/ .\nOriginal error: ",
+      conditionMessage(e), call. = FALSE))
   docallargs[["datasetx"]] = out
 
   printer(sprintf("Selected dataset %s.", dataset_id))
@@ -106,7 +132,32 @@ download_layers = function(dataset_id,
   }
 
   # Call
-  res = suppressMessages(do.call(rerddap::griddap, docallargs))
+  res = tryCatch(
+    suppressMessages(do.call(rerddap::griddap, docallargs)),
+    error = function(e) stop(
+      "The download from the Bio-Oracle ERDDAP server failed. This is usually ",
+      "caused by an unreachable server or constraints (time/latitude/longitude) ",
+      "outside the dataset range.\nOriginal error: ",
+      conditionMessage(e), call. = FALSE))
+
+  # Warn if the query returned no data
+  res_data <- res$data
+  if (!is.null(res_data) && is.data.frame(res_data) && nrow(res_data) == 0) {
+    warning("The query returned no data. Check that your constraints ",
+            "(time, latitude, longitude) fall within the dataset range.",
+            call. = FALSE)
+  }
+
+  # Optionally save a human-readable copy of the downloaded file
+  if (!is.null(filename)) {
+    src <- res$summary$filename
+    ext <- tools::file_ext(src)
+    dest_dir <- if (!is.null(directory)) directory else dirname(src)
+    dest <- file.path(dest_dir, paste0(filename, ".", ext))
+    file.copy(src, dest, overwrite = TRUE)
+    res$summary$filename <- dest
+    printer(sprintf("Saved file as %s", dest))
+  }
 
   if(is_raster) res <- griddap_to_terra(res)
 

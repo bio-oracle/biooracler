@@ -10,6 +10,7 @@ download_layers(
   constraints = list(),
   fmt = "raster",
   directory = NULL,
+  filename = NULL,
   verbose = TRUE,
   debug = FALSE
 )
@@ -24,6 +25,9 @@ download_layers(
 \item{fmt}{Output format. One of 'csv', 'nc' or 'raster' (default). See details.}
 
 \item{directory}{Local directory where files are cached. If NULL (default), it is as in \link[rerddap:griddap]{rerddap::griddap}}
+
+\item{filename}{Optional name (without extension) for the downloaded file. If NULL
+(default), the cryptic cache name from \link[rerddap:griddap]{rerddap::griddap} is kept. See details.}
 
 \item{verbose}{Logical: Show info messages? Default is TRUE}
 
@@ -46,6 +50,21 @@ A csv file will be downloaded to the cache directory. See \code{\link[rerddap:gr
 A \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file will be downloaded to the cache directory. See \code{\link[rerddap:griddap]{rerddap::griddap()}}.
 \item \code{raster}: An object of class \code{SpatRast}, obtained by reading the \href{https://www.unidata.ucar.edu/software/netcdf/}{NetCDF} file with \code{terra::rast}.
 }
+
+By default, downloaded files are named with a cryptic hash (as in \code{\link[rerddap:griddap]{rerddap::griddap()}}).
+Pass \code{filename} to save a human-readable copy, e.g. \code{filename = "chl_2040_ssp585"}. The
+copy is written to \code{directory} (or the cache directory if \code{directory} is NULL) with the
+extension matching \code{fmt}. The original cached file is preserved so caching still works.
+
+The \code{time} constraint is a \strong{range}: every time step that falls within the
+\verb{[start, end]} interval is returned as a separate layer. Decadal baseline datasets
+store snapshots on decade boundaries, so a range like \code{c('2000-01-01T00:00:00Z', '2010-01-01T00:00:00Z')}
+spans two snapshots (two layers), while \code{c('2005-01-01T00:00:00Z', '2010-01-01T00:00:00Z')}
+spans one (single layer). To get a single time step, set the start and end of \code{time} to the same value.
+
+ERDDAP reports coordinates at cell \strong{centers}. As a result, the extent of a returned
+\code{raster} reaches half a cell-width beyond the nominal bounds (e.g. slightly past +/-180
+longitude). This is expected: the data covers the full grid and is not shifted.
 }
 \examples{
 \dontrun{

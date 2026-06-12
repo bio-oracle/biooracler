@@ -36,6 +36,12 @@ test_that("download dataset works", {
 
   out_dir <- normalizePath(dirname(test_dir$summary$filename))
     expect_equal(out_dir, temp_dir)
+
+  # Test custom output filename
+  test_name <- download_layers(dataset_id, variables, constraints, fmt = "nc",
+                               directory = temp_dir, filename = "test_layer")
+    expect_equal(basename(test_name$summary$filename), "test_layer.nc")
+    expect_true(file.exists(file.path(temp_dir, "test_layer.nc")))
 })
 
 test_that("List layers work", {
