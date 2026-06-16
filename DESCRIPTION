@@ -15,11 +15,10 @@ BugReports: https://github.com/bio-oracle/biooracler/issues
 Suggests:
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
-VignetteBuilder: knitr
     testthat (>= 3.0.0),
     vcr (>= 0.6.0),
     webmockr
+VignetteBuilder: knitr
 Config/testthat/edition: 3
 Imports: 
     checkmate,
