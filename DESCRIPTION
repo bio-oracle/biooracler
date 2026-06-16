@@ -3,7 +3,8 @@ Title: Import Environmental Ocean Data from Bio-Oracle via ERDDAP
 Version: 1.0.0
 Authors@R: c(
       person("Salvador", "Fernandez", email = "salvador.fernandez@vliz.be", role = c("aut", "cre")),
-      person("Vinicius", "Salazar", email = "viniws@gmail.com", role = "aut"))
+      person("Vinicius", "Salazar", email = "17276653+vinisalazar@users.noreply.github.com", role = "cre"),
+      person("Bart", "Vanhoorne", email = "bart.vanhoorne@vliz.be", role = "cre"))
 Description: Environmental ocean data modeled both for the present and for future climate change
              scenarios offered by the Bio-Oracle dataset <https://bio-oracle.org/> via ERDDAP server.
 License: MIT + file LICENSE
