@@ -5,3 +5,6 @@
 ^\.github$
 ^.*\.Rcheck$
 ^biooracler_.*\.tar\.gz$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
