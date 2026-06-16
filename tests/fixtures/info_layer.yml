@@ -1,0 +1,163 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://erddap.bio-oracle.org/erddap/info/tas_baseline_2000_2020_depthsurf/index.json
+  response:
+    status: 200
+    headers:
+      content-disposition: attachment;filename=tas_baseline_2000_2020_depthsurf_info.json
+      content-encoding: gzip
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      content-type: application/json;charset=UTF-8
+      cross-origin-opener-policy: same-origin
+      date: Fri, 12 Jun 2026 02:51:35 GMT
+      referrer-policy: no-referrer-when-downgrade
+      server: Apache
+      set-cookie: vliz_webc=vliz_webc2; path=/
+      status: 'HTTP/2 200 '
+      strict-transport-security:
+      - max-age=31536000
+      - max-age=0
+      vary: Origin
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
+    body:
+      raw_gzip: |-
+        eJy1mVtv47YSgN/3Vwz0dA4gu5Ls+BIgD95s1ptzsskidrpt40BgpJHNViINkkpiFP3vBXWL
+        5assO0H
+        gyBL5zWgu5HDy9ycAQ5HnEI1z+PsTAIDh8TCO2C2JUBrn8Gjc81cYL+ZomGD8SgTV
+        o0E/1jcGSgn6HK
+        v3O1+IIkvjwxiNJ3OZrJ+l5JESlE31uEpXOUbw12R+8g3g0SC5Enrw7aU7
+        vLn7PLjRX9zbyx+Cz1Eoi
+        rIMfUEhKWcXjslQeX5w0W52my1z5gdnF3bTtprtXOBuEZ4fuT5R
+        xFXZO7+LGArqV4TwKEKmytMfJEoo
+        5kgQmA7z0YfnBcyUmsvzX37xAo+zF2SKciabXEyribx8
+        n1QWe/m1YTfPKuotkCguXJY5/53ymfLGnSB
+        eiOBxJrlQNI7OC6VfX1+bz5Q3eDKkuta5wFiE
+        ZXnHgq+IVChYxKVy9XWG9Xmsk8MEw+72m/1uRbvg2x
+        wFXXfpZyIxpAyrUabI5ZwoSkI3JMqN
+        yFtZpd4BGq2yKCuzGkfABEoexjqUykyrabX75Z9OLQExo2olS
+        n2cCkTpMi7U7HAoZ+vmPMjD
+        q7A1ex5D+1iDcrbLoEikqsgU1HcjMp9TNnWHyMeCMBlwEZXBDbtngdW0
+        zsCCvgUWNPSXGiIo
+        02s2ukFIlEK2lqFOv9d0zrqO0zrrtGrwQ86mG1ayy/sR+BhQRhOH1ONSFfvo8sC
+        d62XBjVBQ
+        n5J199bAr2scEpXKKyTXwEqMqBuRP7lwyRuVZU07rW7PbnVr6ZvHocCgrPbw6m54OXqcGD
+        +H
+        I+i1J4b5ZTB++J7ecO1+cmv049vV/d31l+VhmTZmKQCenswf99ffr/T8oUBkr9SbTQzTejIf
+        bq/H
+        j5Ms4vWtpmV322ctp++c2f1+u9UyBw/jb3f31+PfHyfG1Y/RcGKYE6NvO87EeHoyB79d
+        az1vMjtPDPP
+        27n787f1BbveJYV4NRuOnzbx2y+loXjUjzqhUXCzKNvtK9QarN0X0z8GxHKdh
+        nTWsFtjt81bv3LarsS
+        kL+MOpt1TKpLZPvox9eG3wFy5eufBX1jVChcJojoKoWKAJ5AUFmaIJ
+        z5QnH5kcc0kXE3RFZ4KPczWTs
+        QhM0KmUfjYUisiEiLzRSA+NKEsvcs673iYIwrQsRaQbqoi8
+        FZeUpZfFvQhJfit/lk9eVj8VrmiEJmSG
+        Ki4OtlhIPWRyZfUYzzB5fYjIAp4RYok+EOaDQJ/K
+        DOVDwAUEAhGeYwVUAuMKKFNJeTph+mmIUxLq6SZ
+        IyjwEqhKmx5kilAFlxPNiQTyKsgm3SNUM
+        BahM/IRdcpZK48KEq/svJtzeDQYmMJ6OemBUKzJSRFfHQ/
+        6i6zdkKh1B2GLCeKBHUgEYzUO+
+        QJTARaKAIJ7iQmo//qXLbLaAVyIEYWphAr7NBUo9dsJoNA8p+iZQ5
+        oWxT9k0H0g1LYAIhTcj
+        TJFnGlK1SEwVUMU0QJuBTNicCEW9OCQC5rGYc5lECRAp4ygTnhorpDklyF4y
+        M9HCnDCPR/MQ
+        FWpyMj+WGMRh9lW/KZWgM1lERCdds1oQ3OoKKi99ky9rO+shtaHAAAUyb/W8dWx2Sx4
+        LbyVU
+        lxaS7DgHv7aqbkopcG3V+0/IPRJCQEOU/61GGvF4nwUPKq+lIswnwt+wtRMq3KX1oAbPfeEe
+        e
+        daxuLKVXH7VqZQMTA7zME5O+i/dqvaMo2gN+rFnWL0Muh5PV3QXmV8W7li21bDshmWPLes8
+        +f2jDlgq
+        ItQq2qqNVuH2MB5QMX53LzwmO9AoFsET5GdHSGQ7lmNVTPCfuOdou+ms4uvTq8y2
+        bm0O/bc8jSXdHXn
+        hmIAvyMLFaE489C+UiN/3WX2PsulFq3PWAp8s5FadcyHuJefCp4woHLxR
+        OV5rq4z1wH0U4qlYF5l6Cy
+        2r3W+2O51eu3fVM8FuOh2nZbWv+vuBWRG8pMfeOR4JUSdUed5U
+        4JQLXf3vm085l65HlB6/qGGELSeaS
+        nN3LEKqyvwkhbigU7pS/Vl243+D24bd71qQ585e2oYD
+        q0SPM19mtYXG7UrIUjznByQji+kg5CRJ8Dyk
+        Wx3LqhLVBx3Il6XuDfIboiqBVuO8eJVsxzFh
+        z85Tgq3F+O+V5u2I0xvukZ3n5mXOlni9yYdUYRT1h+7
+        Kxiu9iCnyqSDzGdVbvFe4QJrwczjq
+        tWEu+J/oVdZ3R46Eh+hcu7+1DHkhYXLKTrpaRRj0dzUVNkxPs/
+        U9ilbnl/Oo6C9sS6Su8xGJ
+        tCx2fybtcuYyaXsqZfujCfuaemXeWjb9Vm3iUem0DNqWT3vbQiXKh2fUs
+        rBdKXWY2nV7nCXI
+        5qSyezuzagNgNa3WCC/Zf9b006wvYKxVXOmxP8/atB2x2yJLKPcrDcP0H3Ll6k8n
+        W7NfBeHx
+        kIvPRHxPex9lTsvedfTaREkbJ2WK06lI2VUbVTggLZG2ZEn2kisleRXghsj7/y5fJ52hU3m
+        7
+        gB3j7wJypMfXOfV8XnBO4PWCtWN1THp8eYvvkAgo4IfGgG7/nSoEctZRGZ8xjk35VUzNnM8w
+        J3B/j
+        tri/UFalxyU9RmxRtrTk/m8gB2Z9vQUXl/n1E57eiq/F6z9aZ8qe2Da01oxcMIIOIH/
+        T+P90/j+dJ7f
+        7ffvh3u7pq+Lg8UpvF3AjvF3ATnS4+ucej4vOCfwesHa4vd7/fwQrxfAzX5P
+        JurPfz798+lfeBXtPg=
+        =
+  recorded_at: 2026-06-12 02:51:36
+- request:
+    method: GET
+    uri: https://erddap.bio-oracle.org/erddap/tabledap/index.json?page=1&itemsPerPage=10000
+  response:
+    status: 200
+    headers:
+      content-disposition: attachment;filename=tabledap.json
+      content-encoding: gzip
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      content-type: application/json;charset=UTF-8
+      cross-origin-opener-policy: same-origin
+      date: Fri, 12 Jun 2026 02:51:36 GMT
+      erddap-server: '2.23'
+      last-modified: Fri, 12 Jun 2026 02:51:36 GMT
+      referrer-policy: no-referrer-when-downgrade
+      server: Apache
+      set-cookie: vliz_webc=vliz_webc2; path=/
+      status: 'HTTP/2 200 '
+      strict-transport-security:
+      - max-age=31536000
+      - max-age=0
+      vary: Origin
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
+      xdods-server: dods/3.7
+    body:
+      raw_gzip: |-
+        eJzNVc1u2zAMvvcpCJ+cIb+HYViAHdymKwIka1FnG9C6KBSbsbXqJ5PkpkXRdx9oy4mbrmi3
+        XQYkkUh
+        +/EhJDPlwABA4thQYjOHhAAAgSLUopfrCJNpgDJdBbniWsXXQhSAulxYd7Sofr52z
+        G4QITgxbFyRvpK
+        VlxQVWmwV3Amt3KZm5p+3nk8kRrdP4FEYfR6P3laBWmtZDlt7kRpcqg0Z1
+        Hse0HEvGRQ21jrvSca1In
+        DDHLDqYToKrbvsYi/u1P0bsDFd5lcb/t2uSNnpTZVtJAJcBYQrn
+        1nY8GKChd+gvue5pw1KBfW1yrx00
+        DzJgQvjbsH27fa+/5vi3BPKmJprvO1gUCDNuHegVREJA
+        lDp+i9C4AFfgCm7h+Hwyic7gXVVBpMj8G3M
+        LDKposCl4WkDBSGP0hii5WmkjGRUGrLQBZGmx
+        dU1LY1A5cQ+sjvo0WD9RiUozeU34a3e/RvgEp65Ak6
+        hv0fk0Opwdx+NEebrpBMJd4XUSxdIU
+        reVLgYniuwKtHWJnytSVBmsn2Mqd/ZjhkZZSK6hgc52hACpjw
+        glmLYT+ao5I6iTK0f8rUZKr
+        mVY5d2WGEM654rKUsFV1IcPcINprZNZ1EiXZXRvP7l7Bi8YSr1nKVQ5h
+        dIuG5Qgnhmc7R/D2
+        5wG5mjG3n5/X7NBKG1f4/HbwJr0X4cJbXsiuYXqW3DYcV5HYz26n0QYU5qyuVVy
+        7otMFWWfZ
+        cvNZvsGNqwWXrUgkdcFiqlVmwXKVIow+fhj2hqPecLQYDsfV56IO6X19uD/wdVy+cEMV5f
+        Z2
+        PFknUb79Q3jILMLX8xn9y07P8AuVYOUZo7nlKdVn3W8g9Ki4Fr/jEs5YToCmSfyebUHWQYw/
+        S6Qj
+        7HhpwkTVfNlyk6oX9WplK4LV9il5fBq3mDbpnvn70ROz3DfP2+ZqpD0FJPWcS4IWrN/v
+        QzgagtQG4ZY
+        ZTueiu2x3wjc1Vepm7YY64CrDu/4PW4894niFoh3ys2AqQ2NhzgxXCM0QRQi/
+        zaYXHcK0W/9VNYbo9/
+        Hg8eAX46K5zA==
+  recorded_at: 2026-06-12 02:51:36
+recorded_with: VCR-vcr/2.1.0
